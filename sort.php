@@ -1,5 +1,7 @@
 <?php
 
+require_once "BinaryHeap.php";
+
 $isQuite = false;
 if (isset($argv[1])) {
     $isQuite = $argv[1] == 'quite';
@@ -222,6 +224,16 @@ $mergeSort = function ($data) {
     return $data;
 };
 
+$heapSort = function ($data) {
+    $heap = new BinaryHeap($data);
+    for ($i = count($data) - 1; $i >= 0; $i--) {
+        $data[$i] = $heap->getMax();
+    }
+    return $data;
+};
+
+
+
 echo "\nbubble sort: \n";
 $checkAlgorithm($bubbleSort);
 echo "\nshaker sort: \n";
@@ -236,5 +248,6 @@ echo "\nquick sort: \n";
 $checkAlgorithm($quickSort2);
 echo "\nmerge sort: \n";
 $checkAlgorithm($mergeSort);
-
+echo "\nheap sort: \n";
+$checkAlgorithm($heapSort);
 
