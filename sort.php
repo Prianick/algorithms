@@ -232,7 +232,10 @@ $heapSort = function ($data) {
     return $data;
 };
 
-
+$phpSort = function (array $data) {
+    sort($data, SORT_NUMERIC);
+    return $data;
+};
 
 echo "\nbubble sort: \n";
 $checkAlgorithm($bubbleSort);
@@ -250,4 +253,6 @@ echo "\nmerge sort: \n";
 $checkAlgorithm($mergeSort);
 echo "\nheap sort: \n";
 $checkAlgorithm($heapSort);
+echo "\nphp sort: \n";
+$checkAlgorithm($phpSort);
 
